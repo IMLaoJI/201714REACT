@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import jsonp from 'jsonp';
+import './search.css';
+
 
 export default class Search extends React.Component {
     constructor() {
@@ -68,8 +70,7 @@ export default class Search extends React.Component {
     render() {
         let {data, show, n, val} = this.state;
 
-        return <div className="panel panel-default"
-                    style={{width: '500px', margin: '20px auto'}}>
+        return <div className="panel panel-default">
             <header className="panel-heading">
                 <input type="text"
                        className="form-control"
