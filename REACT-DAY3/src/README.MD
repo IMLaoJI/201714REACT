@@ -15,7 +15,23 @@
 
 
 
+//=>INIT
+defaultProps
+constructor
+componentWillMount
+render
+componentDidMount
 
+//=>UPDATE
+shouldComponentUpdate (nextProps,nextState)=>boolean
+componentWillUpdate
+componentDidUpdate
+
+//=>UPDATE PROPS
+componentWillReceiveProps newProps
+
+//=>UN-INIT
+componentWillUnmount
 
 
 
