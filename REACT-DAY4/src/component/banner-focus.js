@@ -17,13 +17,24 @@ class BannerFocus extends React.Component {
     }
 
     render() {
-        const {num, cur} = this.props;
+        let {num, cur: step} = this.props;
+
+        //=>处理左右边界的STEP值，让其和FOCUS的索引正对应
+        step--;
+        switch (step) {
+            case -1:
+                step = num - 1;
+                break;
+            case num:
+                step = 0;
+                break;
+        }
 
         return <ul className="banner-focus">
             {
                 new Array(num).fill('').map((item, index) => {
                     return <li key={index}
-                               className={index === cur ? 'active' : ''}>
+                               className={index === step ? 'active' : ''}>
                     </li>;
                 })
             }
