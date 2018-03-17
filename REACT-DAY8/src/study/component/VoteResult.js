@@ -16,7 +16,7 @@ class VoteResult extends React.Component {
 
         return <header className='panel-heading'>
             <h3 className='panel-title'>
-                刘治兵 VS 王力民 谁长的更有特色一些！
+                骑士 VS 老鹰 谁的能力更强一些！
             </h3>
             <div className="progress"
                  style={{

@@ -16,13 +16,13 @@ class VoteButton extends React.Component {
             <button type="button"
                     className="btn btn-danger"
                     onClick={supportA}>
-                刘治兵
+                支持骑士
             </button>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button"
                     className="btn btn-success"
                     onClick={supportB}>
-                王力民
+                支持老鹰
             </button>
         </main>;
     }
