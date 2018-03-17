@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import action from '../store/action/index';
 
-export default class VoteResult extends React.Component {
+class VoteResult extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        let {A, B} = this.props,
+            val = ((A / (A + B)) * 100).toFixed(2) + '%';
+        (A + B) === 0 ? val = '50%' : null;
+
         return <header className='panel-heading'>
             <h3 className='panel-title'>
                 刘治兵 VS 王力民 谁长的更有特色一些！
@@ -23,12 +29,14 @@ export default class VoteResult extends React.Component {
                      aria-valuemin="0"
                      aria-valuemax="100"
                      style={{
-                         width: '60%',
+                         width: val,
                          background: '#D9534F'
                      }}>
-                    60%
+                    {val}
                 </div>
             </div>
         </header>;
     }
 }
+
+export default connect(state => ({...state.vote}), action.vote)(VoteResult);
