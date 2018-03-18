@@ -30,7 +30,7 @@ export default class Custom extends React.Component {
                     <Redirect from='/custom' exact to='/custom/list'/>
                     <Route path='/custom/list' component={CustomList}/>
                     <Route path='/custom/create' component={CustomCreate}/>
-                    <Route path='/custom/detail' component={CustomDetail}/>
+                    <Route path='/custom/detail/:id?' component={CustomDetail}/>
                 </Switch>
             </div>
         </div>;

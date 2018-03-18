@@ -8,23 +8,28 @@ import Custom from "./routers/custom";
 import Plan from "./routers/plan";
 import Nav from "./component/nav";
 
-ReactDOM.render(<HashRouter>
-    <div>
-        <Nav/>
+import {Provider} from 'react-redux';
+import store from './store/index';
 
-        <Switch>
-            <Route path="/" exact component={Home}/>
-            <Route path="/custom" component={Custom}/>
-            <Route path="/plan" component={Plan}/>
+ReactDOM.render(<Provider store={store}>
+    <HashRouter>
+        <div>
+            <Nav/>
 
-            {/*<Route render={() => {
+            <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/custom" component={Custom}/>
+                <Route path="/plan" component={Plan}/>
+
+                {/*<Route render={() => {
                 return <h2>HELLO WORLD</h2>;
             }}/>*/}
-            {/*REDIRECT：重定向，重新定向到一个新的地址*/}
-            <Redirect to="/"/>
-        </Switch>
-    </div>
-</HashRouter>, window.root);
+                {/*REDIRECT：重定向，重新定向到一个新的地址*/}
+                <Redirect to="/"/>
+            </Switch>
+        </div>
+    </HashRouter>
+</Provider>, window.root);
 
 /*
  * 基于REACT的ROUTER实现SPA单页面应用,我们会按照如下的工程目录开发：

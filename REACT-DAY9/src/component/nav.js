@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NavLink, Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import action from '../store/action/index';
+
+import {NavLink, Link, withRouter} from 'react-router-dom';
 import './nav.less';
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -36,6 +39,9 @@ export default class Nav extends React.Component {
         </nav>;
     }
 }
+
+export default withRouter(connect(state => ({...state.custom}), action.custom)(Nav));
+
 /*
  * Link VS NavLink
  *   都是ROUTER提供的组件，用来实现组件切换的

@@ -2,7 +2,10 @@ import React from 'react';
 import * as Types from '../action-types';
 
 const customReducer = (state = {
-    data: []
+    data: [
+        {id: 1, name: 'AA'},
+        {id: 2, name: 'BB'}
+    ]
 }, action) => {
     state = JSON.parse(JSON.stringify(state));
     switch (action.type) {
