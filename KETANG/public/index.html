@@ -7,6 +7,24 @@
     <title>珠峰培训-在线课堂</title>
 </head>
 <body>
+<!--我们期望动态计算REM,让页面整体按照比例缩放的这段程序,在CSS加载完成后就触发执行,而是不是等到主体JS加载完再执行,此时我们需要手动的在模板中加JS,这段JS不会走WEBPACK的打包编译-->
+<script>
+    ~function () {
+        function computed() {
+            var oHTML = document.documentElement,
+                winW = oHTML.clientWidth,
+                desW = 640;
+            if (winW >= desW) {
+                oHTML.style.fontSize = '100px';
+                return;
+            }
+            oHTML.style.fontSize = winW / desW * 100 + 'px';
+        }
+
+        computed();
+        window.addEventListener('resize', computed, false);
+    }();
+</script>
 <div id="root"></div>
 </body>
 </html>

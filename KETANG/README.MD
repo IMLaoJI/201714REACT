@@ -21,3 +21,9 @@
 >
 > 1）$ yarn eject  把隐藏的配置项展示出来
 >   问题：如果当前项目是基于GIT仓库管理的，并且有部分内容没有提交到历史区，此时执行此操作会报错，我们需要把工作区内容清空（提交到历史区）
+>
+> 2）我们基于默认的配置项，新增加LESS的处理
+>   $ yarn add less less-loader
+>   修改配置项，记得修改两个（webpack.config.dev.js 、 webpack.config.prod.js）
+
+
