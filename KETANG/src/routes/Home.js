@@ -56,10 +56,28 @@ class Home extends React.Component {
                 <Banner data={this.state.bannerData} auto={1000}/>
 
                 {/*KE-CHENG*/}
-                <div>
-                    <h3><i>全部课程</i></h3>
+                <div className="kechengBox">
+                    <h3>
+                        <i className="iconfont icon-wode_kecheng"></i>
+                        全部课程
+                    </h3>
                     <ul>
-                        <Course/>
+                        <Course flag='list' data={{
+                            id: 1,
+                            name: '微信小程序专家级课程',
+                            pic: '',
+                            address: '珠峰培训',
+                            time: '21分钟',
+                            price: 2000
+                        }}/>
+                        <Course flag='list' data={{
+                            id: 1,
+                            name: '微信小程序专家级课程',
+                            pic: '',
+                            address: '珠峰培训',
+                            time: '21分钟',
+                            price: 2000
+                        }}/>
                     </ul>
                 </div>
             </section>

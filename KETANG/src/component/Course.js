@@ -3,38 +3,62 @@ import PropTypes from 'prop-types';
 import {withRouter, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './Course.less';
+import utils from '../common/js/utils';
 
 class Course extends React.Component {
+    static defaultProps = {
+        flag: 'list'
+    };
+    static propTypes = {
+        flag: PropTypes.string,
+        data: PropTypes.object.isRequired
+    };
+
     constructor(props) {
         super(props);
     }
 
     render() {
+        let {
+            flag,
+            data: {
+                id,
+                name = '珠峰培训VIP精品课',
+                pic,
+                date = utils.formatTime(new Date()),
+                address = '珠峰培训',
+                price = 0,
+                time = '20分钟'
+            }
+        } = this.props;
+        pic = pic || require(`../common/images/default.png`);
+
         return <li className="courseItem">
-            <Link to="/detail">
-                <h3 className="title">微信小程序专家级课程</h3>
+            <Link to={`/detail/${id}`}>
+                <h3 className="title">{name}</h3>
                 <div className="con">
                     <div className="imgBox">
-                        <img src="" alt=""/>
+                        <img src={pic} alt={name}/>
                     </div>
                     <div className="con_right">
                         <p>
                             <span>开课时间</span>
-                            <span>2018-03-21</span>
+                            <span>{date}</span>
                         </p>
                         <p>
                             <span>上课地点</span>
-                            <span>珠峰培训</span>
+                            <span>{address}</span>
                         </p>
                         <p>
                             <span>时长</span>
-                            <span>2小时</span>
+                            <span>{time}</span>
                         </p>
                     </div>
                 </div>
-                <div className="price">
-                    课程金额：<span>￥2000</span>
-                </div>
+
+                {flag === 'pay' ? <div className="price">
+                    课程金额：<span>￥{price}</span>
+                </div> : null}
             </Link>
         </li>;
     }
