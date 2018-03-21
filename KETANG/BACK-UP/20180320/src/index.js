@@ -33,6 +33,8 @@ ReactDOM.render(<Provider store={store}>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
             <Route path="/forget" component={Forget}/>
+
+            {/*非以上任何地址,说明请求的地址是404,我们跳转回到首页*/}
             <Redirect to="/"/>
         </Switch>
     </HashRouter>
