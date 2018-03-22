@@ -27,6 +27,7 @@ class Home extends React.Component {
 
         //=>COURSE
         let {courseData, getCourse} = this.props;
+        //=>REDUX容器中还没有存放数据,此时我们派发一个任务,获取到数据存储到容器中
         if (courseData && courseData.length === 0) {
             getCourse();
         }

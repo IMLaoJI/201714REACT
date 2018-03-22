@@ -46,8 +46,16 @@ class Nav extends React.Component {
                 </a>
             </div>
 
+            {/*
+              * 基于TRANSITION组件实现动画,想让哪一个元素实现动画,我们就用TRANSITION把它包裹起来即可
+              *   1、需要把控制动画的元素用一层函数包裹起来,函数中有一个参数叫做STATE,当我们进行相关操作的时候,STATE是跟着进行改变的,由STATE的改变控制元素的动画
+              *
+              *   2、timeout：完成动画的时间
+              *   3、in：[BOOLEN] 通过这属性可以控制元素动画的切换
+              */}
             <Transition in={inProps} timeout={100}
                         onEnter={node => {
+                            //=>NODE:当前控制动画的元素
                             node.style.display = 'block';
                         }}
                         onExited={node => {
@@ -64,6 +72,7 @@ class Nav extends React.Component {
                                        inProps: false
                                    });
 
+                                   //=>DISPATCH派发修改容器中的数据
                                    this.props.getCourse(ev.target.getAttribute('type'));
                                }}>
                         <li type="all">全部课程</li>

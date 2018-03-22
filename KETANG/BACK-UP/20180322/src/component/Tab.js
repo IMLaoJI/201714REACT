@@ -13,7 +13,7 @@ class Tab extends React.Component {
         return <footer className="footerBox">
             <ul>
                 <li>
-                    <NavLink to="/" exact>
+                    <NavLink to="/">
                         <i className="iconfont icon-xingqiu"></i>
                         首页
                     </NavLink>

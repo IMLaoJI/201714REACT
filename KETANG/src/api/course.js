@@ -11,3 +11,15 @@ export function queryCourseList(type = 'all') {
         }
     });
 }
+
+export function queryCourseInfo(id) {
+    return axios.get(`/course/info?id=${id}`);
+}
+
+export function collectCourse(item) {
+    return axios.post(`/course/collect`, {item});
+}
+
+export function queryCollect() {
+    return axios.get(`/course/collect`);
+}

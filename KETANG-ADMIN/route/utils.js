@@ -14,5 +14,19 @@ module.exports = {
                 resolve(data);
             });
         });
+    },
+    writeFile(pathName, content) {
+        let pathFile = `${path.resolve()}/moc/${pathName}`;
+        content = typeof content !== 'string' ? JSON.stringify(content) : content;
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(pathFile, content, 'utf-8', err => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                resolve();
+            });
+        });
     }
 };
